@@ -31,6 +31,7 @@ variable "vc_password" {
   description = "Password for the account on the target vCenter that will be used to deploy the appliance"
   type        = string
   default     = ""
+  sensitive   = true
 }
 
 variable "vc_datacenter" {
@@ -122,6 +123,7 @@ variable "vcenter_dns" {
 variable "vcenter_root_password" {
   description = "vCenter server root password"
   type        = string
+  sensitive   = true
 }
 
 variable "vcenter_ntp_server" {
@@ -168,4 +170,16 @@ variable "windows" {
 variable "binaries_path" {
   description = "Path for the vCenter server deployment binaries"
   type        = string
+}
+
+variable "mac" {
+  description = "Toggle for executing the mac binary for deploying the vcsa"
+  type        = bool
+  default     = false
+}
+
+variable "linux" {
+  description = "Toggle for executing the linux binary for deploying the vcsa"
+  type        = bool
+  default     = false
 }
