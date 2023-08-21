@@ -16,6 +16,7 @@ output "vcenter_user" {
 output "vcenter_password" {
   value       = var.vcenter_sso_password
   description = "SSO user password that was set during the vCenter provisioning"
+  sensitive   = true
 }
 
 output "vcenter_root_user" {
@@ -26,4 +27,5 @@ output "vcenter_root_user" {
 output "vcenter_root_password" {
   value       = var.vcenter_root_password
   description = "Password for the local root user"
+  sensitive   = true
 }

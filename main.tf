@@ -36,21 +36,21 @@ locals {
 # }
 
 resource "null_resource" "vcsa_linux_deploy" {
-  count = var.linux == true ? 1 : 0
+  count = var.linux ? 1 : 0
   provisioner "local-exec" {
     command = "${local.binaries_path}/vcsa-cli-installer/lin64/vcsa-deploy install --accept-eula --acknowledge-ceip --no-ssl-certificate-verification ${local.vcsa_template}"
   }
 }
 
 resource "null_resource" "vcsa_windows_deploy" {
-  count = var.windows == true ? 1 : 0
+  count = var.windows ? 1 : 0
   provisioner "local-exec" {
     command = "${local.binaries_path}/vcsa-cli-installer/win32/vcsa-deploy.exe install --accept-eula --acknowledge-ceip --no-ssl-certificate-verification ${local.vcsa_template}"
   }
 }
 
 resource "null_resource" "vcsa_mac_deploy" {
-  count = var.mac == true ? 1 : 0
+  count = var.mac ? 1 : 0
   provisioner "local-exec" {
     command = "${local.binaries_path}/vcsa-cli-installer/mac/vcsa-deploy install --accept-eula --acknowledge-ceip --no-ssl-certificate-verification ${local.vcsa_template}"
   }
